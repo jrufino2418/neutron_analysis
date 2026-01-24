@@ -1,6 +1,4 @@
-import matplotlib.pyplot as plt
-import matplotlib.colors as mcolors
-import numpy as np
+
 
 def setup(channel):
     if(channel == 0):
@@ -60,55 +58,6 @@ def setup(channel):
         a1, b1, c1 =  9.643124673316269, 0.3903843858562569, -3.283568256243246e-06 
         a2, b2, c2 = -14.308438310834488, 0.4383946514319766, -6.639502580106621e-06
         return integration_start, integration_offset, integration_stop, integration_method, x_min, x_max, x_bins, y_min, y_max, y_bins, upper_gate, lower_gate, slices_in_region1, slices_in_region2, total_slices, a0, b0, c0, a1, b1, c1, a2, b2, c2
-
-def cal_setup(channel):
-    if(channel == 0):
-        # Integration parameters
-        integration_start = 7
-        integration_offset = 9
-        integration_stop = 90
-        integration_method = 3
-        # Histogram parameters
-        x_min = 0; x_max = 12000 
-        y_min = 0; y_max = 1
-        x_bins = 100; y_bins = 100
-        # PSD gate parameters
-        lower_gate = 2000; upper_gate = 10000
-        slices_in_region1 = 20; slices_in_region2 = 3
-        total_slices = slices_in_region1 + slices_in_region2
-        return integration_start, integration_offset, integration_stop, integration_method, x_min, x_max, x_bins, y_min, y_max, y_bins, upper_gate, lower_gate, slices_in_region1, slices_in_region2, total_slices
-
-    if(channel == 8):
-        # Integration parameters
-        integration_start = 7
-        integration_offset = 11
-        integration_stop = 155
-        integration_method = 3
-        # Histogram parameters
-        x_min = 0; x_max = 60000 
-        y_min = 0; y_max = 1
-        x_bins = 800; y_bins = 400
-        # PSD gate parameters
-        lower_gate = 0; upper_gate = 55000
-        slices_in_region1 = 10; slices_in_region2 = 5
-        total_slices = slices_in_region1 + slices_in_region2
-        return integration_start, integration_offset, integration_stop, integration_method, x_min, x_max, x_bins, y_min, y_max, y_bins, upper_gate, lower_gate, slices_in_region1, slices_in_region2, total_slices
-
-    if(channel == 9):
-        # Integration parameters
-        integration_start = 7
-        integration_offset = 17
-        integration_stop = 190
-        integration_method = 3
-        # Histogram parameters
-        x_min = 0; x_max = 50000 
-        y_min = 0; y_max = 1
-        x_bins = 800; y_bins = 400
-        # PSD gate parameters
-        lower_gate = 0; upper_gate = 48000
-        slices_in_region1 = 10; slices_in_region2 = 5
-        total_slices = slices_in_region1 + slices_in_region2
-        return integration_start, integration_offset, integration_stop, integration_method, x_min, x_max, x_bins, y_min, y_max, y_bins, upper_gate, lower_gate, slices_in_region1, slices_in_region2, total_slices
 
 def calibration(long_integral_value, channel, calibration):
     if (channel == 0 and calibration == True):
