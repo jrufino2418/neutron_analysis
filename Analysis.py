@@ -1,6 +1,5 @@
 
 from calibration_and_setup import calibration as cal
-from calibration_and_setup import cal_setup 
 from calibration_and_setup import setup
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors

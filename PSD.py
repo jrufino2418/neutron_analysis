@@ -281,15 +281,17 @@ def load_file(run_number, channel_number, data_filepath):
                 long_integral_list[k] = long_integral
                 PSD[k] = short_integral / long_integral
                 TEvt += 1
-                Total_events_parsed = bool (TEvt % 100000)
+                percent_complete = ((TEvt + BEvt) / events_int) * 100
+                Total_events_parsed = bool (percent_complete % 10)
                 if not Total_events_parsed:
-                    print(f"Total events parsed:\t{TEvt}")
+                    print(f"Percent complete: {percent_complete:.2f}%, good events parsed: {TEvt}")
                     pass
                     
             if ((long_integral <= 0) or (short_integral <= 0)):
                 PSD[k] = -1; long_integral_list[k] = -1 
                 BEvt += 1
-
+        print(f"Finished calculating PSD for run={run_number}, channel={channel_number}. Good events: {TEvt}, Bad events: {BEvt}")
+        print(f"Total events parsed: {TEvt + BEvt}")
     # Plotting Results
     xx = np.linspace(x_min+1, x_max, 400)
     fig = plt.figure()

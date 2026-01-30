@@ -1,5 +1,4 @@
 
-
 def setup(channel):
     if(channel == 0):
         # Integration parameters
