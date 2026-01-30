@@ -1,4 +1,25 @@
 
+# FOM parameters for each channel used in analysis
+def fom(channel):
+    if(channel == 8):
+        # Integration parameters 
+        integration_start = 10
+        integration_method = 3
+        # Histogram parameters
+        x_min = 0; x_max = 20000
+        y_min = 0; y_max = 1
+        x_bins = 200; y_bins = 200
+        # PSD gate parameters
+        lower_gate = 0; upper_gate = x_max - 1000
+        slices_in_region1 = 10; slices_in_region2 = 5
+        total_slices = slices_in_region1 + slices_in_region2
+        # CFD thresholds and calibration flag
+        CFD_pileup_threshold = 0.45  # Threshold for pileup detection
+        CFD_thinpulse_threshold = 0.8  # Threshold for thin pulse detection
+        calibrate = False  # Whether to apply energy calibration or not
+        return integration_start, integration_method, x_min, x_max, x_bins, y_min, y_max, y_bins, upper_gate, lower_gate, slices_in_region1, slices_in_region2, total_slices, CFD_pileup_threshold, CFD_thinpulse_threshold, calibrate
+
+# Setup parameters for each channel used in analysis
 def setup(channel):
     if(channel == 0):
         # Integration parameters

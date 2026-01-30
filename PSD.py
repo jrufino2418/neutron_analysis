@@ -1,5 +1,4 @@
 from calibration_and_setup import calibration as cal
-from calibration_and_setup import cal_setup 
 from calibration_and_setup import setup 
 from scipy.signal import find_peaks
 from scipy.optimize import curve_fit

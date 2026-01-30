@@ -21,7 +21,7 @@ import matplotlib.colors as mcolors
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 from calibration_and_setup import calibration as cal
-from calibration_and_setup import setup 
+from calibration_and_setup import fom
 
 # Run and channel number from command line arguments
 # e.g., python3 fom_PSD.py --run 1234 --channel 8
@@ -91,26 +91,8 @@ offset_range = range(offset_low, offset_high+1, offset_step); offset_length = le
 stop_low = 40; stop_high = 190; stop_step = 50; 
 stop_range = range(stop_low, stop_high+1, stop_step); stop_length = len(stop_range)
 
-# Integration parameters 
-integration_start = 10
-# integration_offset = 17   
-# integration_stop = 190
-integration_method = 3
-
-# Histogram parameters
-x_min = 0; x_max = 20000
-y_min = 0; y_max = 1
-x_bins = 200; y_bins = 200
-
-# PSD gate parameters
-lower_gate = 0; upper_gate = x_max - 1000
-slices_in_region1 = 10; slices_in_region2 = 5
-total_slices = slices_in_region1 + slices_in_region2
-
-# CFD thresholds and calibration flag
-CFD_pileup_threshold = 0.45  # Threshold for pileup detection
-CFD_thinpulse_threshold = 0.8  # Threshold for thin pulse detection
-calibrate = False  # Whether to apply energy calibration or not
+# Getting integration parameters and setup parameters for a given channel (Take the values from calibration.ipynb and copy them into calibration_and_setup.py)
+integration_start, integration_method, x_min, x_max, x_bins, y_min, y_max, y_bins, upper_gate, lower_gate, slices_in_region1, slices_in_region2, total_slices, CFD_pileup_threshold, CFD_thinpulse_threshold, calibrate = fom(channel_number)
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # 3) In this block we will perform the figure of merit analysis by sweeping through offset and stop combinations
